@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Dashboard</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="backend/css/themify-icons.css">
+    <link rel="stylesheet" href="backend/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="css/vendor.bundle.addons.css">
     <!-- endinject -->
     <!-- plugin css for this page -->
@@ -20,7 +20,7 @@
 </head>
 <body>
 <div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
+    <!-- partial:partials/_navlbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
             <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/2h_.png" class="mr-2" alt="logo"/></a>
