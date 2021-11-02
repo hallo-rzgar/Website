@@ -116,6 +116,7 @@
       <excludeFolder url="file://$MODULE_DIR$/e-commerce/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/e-commerce/vendor/psr/event-dispatcher" />
       <excludeFolder url="file://$MODULE_DIR$/e-commerce/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/e-commerce/vendor/laravelcollective/html" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

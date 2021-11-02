@@ -110,6 +110,7 @@
       <path value="$PROJECT_DIR$/e-commerce/vendor/psr/container" />
       <path value="$PROJECT_DIR$/e-commerce/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/e-commerce/vendor/composer" />
+      <path value="$PROJECT_DIR$/e-commerce/vendor/laravelcollective/html" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3">
