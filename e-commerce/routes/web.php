@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +25,18 @@ Route::get('/login',  [ClientController::class, 'log'] );
 
 Route::get('/admin',  [AdminController::class, 'dashboard'] );
 Route::get('/addcategory',  [AdminController::class, 'addcategory'] );
-Route::get('/addproduct',  [AdminController::class, 'addproduct'] );
-Route::get('/addslide',  [AdminController::class, 'addslide'] );
+Route::get('/categories',  [AdminController::class, 'categories'] );
+Route::get('/orders',  [AdminController::class, 'orders'] );
+
+
+
+
+Route::get('/addproduct',  [ProductController::class, 'addproduct'] );
+Route::get('/products',  [ProductController::class, 'products'] );
+
+
+Route::get('/sliders',  [SliderController::class, 'sliders'] );
+Route::get('/addslide',  [SliderController::class, 'addslide'] );
+
+
+

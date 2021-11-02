@@ -2,11 +2,11 @@
 @section('content')
 
 @section('title')
-      Products
+    Orders
 @endsection
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">Products</h4>
+        <h4 class="card-title">Orders</h4>
         <div class="row">
             <div class="col-12">
                 <div class="table-responsive">

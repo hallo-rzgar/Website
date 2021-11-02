@@ -13,9 +13,8 @@
                         {{csrf_field()}}
                         {{Form::label('','Product Category',['for'=>'cname'])}}
                         {{Form::text('category_name','',['class'=>'form-control','minlength'=>'2'])}}
-                        {!! Form::close() !!}
-                        {{Form::submit('Save',['class'=>'btn btn-primary mt-4'])}}
-
+                        {{Form::submit('Save',['class'=>'btn btn-primary mt-4 btn-sm'])}}
+                    {!! Form::close() !!}
 
 
 
@@ -23,4 +22,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script src="backend/js/bt-maxLength.js"></script>
 @endsection

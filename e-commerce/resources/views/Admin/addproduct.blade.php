@@ -13,7 +13,7 @@
                     {{csrf_field()}}
                     <div class="form-group">
                         {{Form::label('','Product Name',['for'=>'cname'])}}
-                        {{Form::text('product_name','',['class'=>'form-control'])}}
+                        {{Form::text('product_name','',['class'=>'form-control','minlength'=>'2'])}}
                     </div>
                     <div class="form-group">
                         {{Form::label('','product Price',['for'=>'cname'])}}
@@ -43,4 +43,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+     <script src="backend/js/bt-maxLength.js"></script>
 @endsection

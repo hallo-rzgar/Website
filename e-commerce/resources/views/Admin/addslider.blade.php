@@ -2,7 +2,7 @@
 @section('content')
 
 @section('title')
-    Add Product
+    Add Slider
 @endsection
 <div class="row grid-margin">
     <div class="col-lg-12">
@@ -13,7 +13,7 @@
                 {{csrf_field()}}
                 <div class="form-group">
                     {{Form::label('','Description one',['for'=>'cname'])}}
-                    {{Form::text('description_one','',['class'=>'form-control'])}}
+                    {{Form::text('description_one','',['class'=>'form-control','minlength'=>'2'])}}
                 </div>
                 <div class="form-group">
                     {{Form::label('','Description two',['for'=>'cname'])}}
@@ -38,3 +38,8 @@
     </div>
 </div>
 @endsection
+@section('script')
+    <script src="backend/js/form-validation.js"></script>
+    <script src="backend/js/bt-maxLength.js"></script>
+@endsection
+
