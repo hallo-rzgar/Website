@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Create Slider</h4>
-                {!! Form::open(['action' => 'App\Http\Controllers\AdminController@addproduct', 'class'=>'cmxform', 'method'=>'POST','id'=>'commentForm']) !!}
+                {!! Form::open(['action' => 'App\Http\Controllers\ProductController@addproduct', 'class'=>'cmxform', 'method'=>'POST','id'=>'commentForm']) !!}
                 {{csrf_field()}}
                 <div class="form-group">
                     {{Form::label('','Description one',['for'=>'cname'])}}
