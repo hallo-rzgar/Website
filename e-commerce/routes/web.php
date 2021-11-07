@@ -5,6 +5,8 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +26,12 @@ Route::get('/checkout',  [ClientController::class, 'checkout'] );
 Route::get('/login',  [ClientController::class, 'log'] );
 
 Route::get('/admin',  [AdminController::class, 'dashboard'] );
-Route::get('/addcategory',  [AdminController::class, 'addcategory'] );
-Route::get('/categories',  [AdminController::class, 'categories'] );
 Route::get('/orders',  [AdminController::class, 'orders'] );
 
 
+Route::get('/addcategory',  [CategoryController::class, 'addcategory'] );
+Route::post('/savecategory',  [CategoryController::class, 'savecategory'] );
+Route::get('/categories',  [CategoryController::class, 'categories'] );
 
 
 Route::get('/addproduct',  [ProductController::class, 'addproduct'] );
