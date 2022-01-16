@@ -23,7 +23,8 @@ Route::get('/',  [ClientController::class, 'home'] );
 Route::get('/shop',  [ClientController::class, 'shop'] );
 Route::get('/cart',  [ClientController::class, 'cart'] );
 Route::get('/checkout',  [ClientController::class, 'checkout'] );
-Route::get('/login',  [ClientController::class, 'log'] );
+Route::get('/login',  [ClientController::class, 'login'] );
+Route::get('/signup',  [ClientController::class, 'signup'] );
 
 Route::get('/admin',  [AdminController::class, 'dashboard'] );
 Route::get('/orders',  [AdminController::class, 'orders'] );

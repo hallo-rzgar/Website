@@ -9,6 +9,18 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Create Category</h4>
+                    @if(Session::has('status'))
+                         <div class="alert alert-success">
+                            {{Session::get('status')}}
+
+                        </div>
+                    @endif
+                        @if(Session::has('status1'))
+                            <div class="alert alert-danger">
+                                {{Session::get('status1')}}
+
+                            </div>
+                    @endif
                          {!! Form::open(['action' => 'App\Http\Controllers\CategoryController@savecategory', 'class'=>'cmxform', 'method'=>'POST','id'=>'commentForm']) !!}
                         {{csrf_field()}}
                         {{Form::label('','Product Category',['for'=>'cname'])}}

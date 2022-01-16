@@ -18,7 +18,11 @@ class ClientController extends Controller
   }
   public function checkout (){
       return view('client.checkout');
-  }public function log (){
+  }
+  public function login (){
       return view('client.login');
   }
+    public function signup (){
+        return view('client.signup');
+    }
 }

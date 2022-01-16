@@ -11,7 +11,7 @@
             <div class="col-12">
                 <div class="table-responsive">
                     <table id="order-listing" class="table">
-                        <thead>
+                           <thead>
                         <tr>
                             <th>Order #</th>
                             <th>Purchased On</th>

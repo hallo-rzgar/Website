@@ -1,9 +1,6 @@
-
-
-
 @extends('layouts.login')
 @section('title')
-    Log in
+   Sign Up
 @endsection
 @section('content')
 
@@ -14,9 +11,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-
-
-        </div>
         </div>
     </nav>
 
@@ -25,7 +19,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">Login</div>
+                        <div class="card-header">Register</div>
                         <div class="card-body">
                             <form action="" method="">
                                 <div class="form-group row">
@@ -57,7 +51,7 @@
                                         Register
                                     </button>
                                     <a href="#" class="btn btn-link">
-                                        Forgot Your Password?
+                                        Login
                                     </a>
                                 </div>
                         </div>
@@ -69,6 +63,7 @@
         </div>
 
     </main>
+
 
 
 @endsection
