@@ -1,9 +1,10 @@
 @extends('layouts.appadmin')
-@section('content')
 
 @section('title')
     Category
 @endsection
+@section('content')
+    {{Form::hidden('',$increment=1)}}
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Category</h4>
@@ -24,14 +25,15 @@
                         <tbody>
                         @foreach($categories as $category)
                         <tr>
-                            <td>{{$category->id}}</td>
+                            <td>{{$increment}}</td>
                             <td>{{$category->category_name}}</td>
 
 
                             <td>
-                                <button class="btn btn-outline-primary">Edit</button>
+                                <button class="btn btn-outline-primary" onclick="window.location='{{url('/edit/'.$category->id)}}'">Edit</button>
                                 <button class="btn btn-outline-danger">delete</button>
                             </td>
+                        {{Form::hidden('',$increment= $increment+ 1)}}
 
                         @endforeach
 
@@ -50,6 +52,6 @@
 @endsection
 @section('script')
 
-    <script src="backend/js/data-table.js"></script>
+    <script src="{{asset('backend/js/data-table.js')}}"></script>
 
 @endsection

@@ -33,9 +33,11 @@ Route::get('/orders',  [AdminController::class, 'orders'] );
 Route::get('/addcategory',  [CategoryController::class, 'addcategory'] );
 Route::post('/savecategory',  [CategoryController::class, 'savecategory'] );
 Route::get('/categories',  [CategoryController::class, 'categories'] );
+Route::get('/edit/{id}',  [CategoryController::class, 'edit'] );
 
 
 Route::get('/addproduct',  [ProductController::class, 'addproduct'] );
+Route::post('/saveproduct',  [ProductController::class, 'saveproduct'] );
 Route::get('/products',  [ProductController::class, 'products'] );
 
 

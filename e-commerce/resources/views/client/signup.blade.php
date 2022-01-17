@@ -50,7 +50,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         Register
                                     </button>
-                                    <a href="#" class="btn btn-link">
+                                    <a href="{{URL::to('/login')}}" class="btn btn-link">
                                         Login
                                     </a>
                                 </div>

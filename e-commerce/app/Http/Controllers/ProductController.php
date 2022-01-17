@@ -14,6 +14,9 @@ class ProductController extends Controller
     public function products (){
         return view('Admin.products');
     }
+    public function saveproduct (){
+        return 123;
+    }
 
 
 }

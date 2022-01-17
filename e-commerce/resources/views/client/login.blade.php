@@ -54,10 +54,12 @@
 
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Register
+                                        Login
                                     </button>
                                     <a href="#" class="btn btn-link">
                                         Forgot Your Password?
+                                    </a><a href="{{URL::to('/signup')}}" class="btn btn-link">
+                                        Regester
                                     </a>
                                 </div>
                         </div>

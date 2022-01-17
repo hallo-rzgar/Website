@@ -29,5 +29,11 @@ class CategoryController extends Controller
     public function categories (){
         $categories = Category::get();
         return view('Admin.categories')->with('categories',$categories);
+
+    }
+    public function edit($id){
+        $category = Category::find($id);
+
+        return view('admin.editcategory')->with('category',$category) ;
     }
 }
