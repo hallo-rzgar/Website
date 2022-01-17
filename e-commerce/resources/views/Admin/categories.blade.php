@@ -8,6 +8,12 @@
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Category</h4>
+        @if(Session::has('status'))
+            <div class="alert alert-success">
+                {{Session::get('status')}}
+
+            </div>
+        @endif
         <div class="row">
             <div class="col-12">
                 <div class="table-responsive">
@@ -31,7 +37,7 @@
 
                             <td>
                                 <button class="btn btn-outline-primary" onclick="window.location='{{url('/edit/'.$category->id)}}'">Edit</button>
-                                <button class="btn btn-outline-danger">delete</button>
+                                <a href="{{url('/delete/'.$category->id)}}" class="btn btn-outline-danger" id="delete">delete</a>
                             </td>
                         {{Form::hidden('',$increment= $increment+ 1)}}
 

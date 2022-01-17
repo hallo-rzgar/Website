@@ -36,4 +36,18 @@ class CategoryController extends Controller
 
         return view('admin.editcategory')->with('category',$category) ;
     }
+    public function updatecategory(Request $request){
+        $category = Category::find($request->input('id'));
+        $category->category_name=$request->input('category_name');
+        $category->update();
+        return redirect('/categories')->with('status', 'the ' . $category->category_name . ' Category has been Updated successfuly');
+
+
+    }
+    public function deletecategory($id){
+        $category = Category::find($id);
+        $category->delete();
+
+        return redirect('/categories')->with('status', 'the ' . $category->category_name . ' Category has been Deleted successfuly');
+    }
 }

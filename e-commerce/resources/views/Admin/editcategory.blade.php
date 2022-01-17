@@ -8,10 +8,11 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Update Category</h4>
+                <h4 class="card-title">Edit Category</h4>
 
-                {!! Form::open(['action' => 'App\Http\Controllers\CategoryController@savecategory', 'class'=>'cmxform', 'method'=>'POST','id'=>'commentForm']) !!}
+                {!! Form::open(['action' => 'App\Http\Controllers\CategoryController@updatecategory', 'class'=>'cmxform', 'method'=>'POST','id'=>'commentForm']) !!}
                 {{csrf_field()}}
+                {{Form::hidden('id',$category->id)}}
                 {{Form::label('','Product Category',['for'=>'cname'])}}
                 {{Form::text('category_name',$category->category_name,['class'=>'form-control','minlength'=>'2'])}}
                 {{Form::submit('Update',['class'=>'btn btn-primary mt-4 btn-sm'])}}

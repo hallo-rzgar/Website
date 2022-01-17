@@ -34,6 +34,8 @@ Route::get('/addcategory',  [CategoryController::class, 'addcategory'] );
 Route::post('/savecategory',  [CategoryController::class, 'savecategory'] );
 Route::get('/categories',  [CategoryController::class, 'categories'] );
 Route::get('/edit/{id}',  [CategoryController::class, 'edit'] );
+Route::post('updatecategory',  [CategoryController::class, 'updatecategory'] );
+Route::get('delete/{id}',  [CategoryController::class, 'deletecategory'] );
 
 
 Route::get('/addproduct',  [ProductController::class, 'addproduct'] );
