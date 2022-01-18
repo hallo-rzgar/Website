@@ -12,7 +12,9 @@ class CategoryController extends Controller
     }
 
     public function savecategory (Request $request)
+
     {
+        $this->validate($request ,  ['category_name'=>'required']);
         $checkcat = Category::where('category_name', $request->input('category_name'))->first();
         $category = new Category();
         if (!$checkcat) {

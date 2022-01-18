@@ -41,6 +41,7 @@ Route::get('delete/{id}',  [CategoryController::class, 'deletecategory'] );
 Route::get('/addproduct',  [ProductController::class, 'addproduct'] );
 Route::post('/saveproduct',  [ProductController::class, 'saveproduct'] );
 Route::get('/products',  [ProductController::class, 'products'] );
+Route::post('/saveproducts',  [ProductController::class, 'saveproducts'] );
 
 
 Route::get('/sliders',  [SliderController::class, 'sliders'] );

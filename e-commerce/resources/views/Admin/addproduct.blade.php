@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Create Product</h4>
-                    {!! Form::open(['action' => 'App\Http\Controllers\ProductController@saveproduct', 'class'=>'cmxform', 'method'=>'POST','id'=>'commentForm']) !!}
+                    {!! Form::open(['action' => 'App\Http\Controllers\ProductController@saveproducts', 'class'=>'cmxform', 'method'=>'POST','id'=>'commentForm', 'ecntype'=>'multipart/form-date']) !!}
                     {{csrf_field()}}
 
                     <div class="form-group">
@@ -22,11 +22,12 @@
                     </div>
                     <div class="form-group">
                         {{Form::label('','product Category')}}
-                        {{Form::select('size',['L'=>'Large','S'=>'Small',],null,['placeholder'=>'Select Category','class'=>'form-control'])}}
+                        {{Form::select('product_category',['L'=>'Large','S'=>'Small',],null,['placeholder'=>'Select Category','class'=>'form-control'])}}
 
                     </div>
 
                     <div class="form-group">
+                        {{Form::label('','product image')}}
                         {{Form::file('product_image',['class'=>'form-control'])}}
                     </div>
                     <div class="form-group">
