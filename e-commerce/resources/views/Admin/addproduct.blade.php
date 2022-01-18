@@ -9,6 +9,12 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Create Product</h4>
+                    @if(Session::has('status'))
+                        <div class="alert alert-success">
+                            {{Session::get('status')}}
+
+                        </div>
+                    @endif
                     {!! Form::open(['action' => 'App\Http\Controllers\ProductController@saveproducts', 'class'=>'cmxform', 'method'=>'POST','id'=>'commentForm', 'ecntype'=>'multipart/form-date']) !!}
                     {{csrf_field()}}
 
@@ -22,7 +28,7 @@
                     </div>
                     <div class="form-group">
                         {{Form::label('','product Category')}}
-                        {{Form::select('product_category',['L'=>'Large','S'=>'Small',],null,['placeholder'=>'Select Category','class'=>'form-control'])}}
+                        {{Form::select('product_category',$categories,null,['placeholder'=>'Select Category','class'=>'form-control'])}}
 
                     </div>
 
@@ -30,12 +36,7 @@
                         {{Form::label('','product image')}}
                         {{Form::file('product_image',['class'=>'form-control'])}}
                     </div>
-                    <div class="form-group">
-                        {{Form::label('','product Status',['for'=>'cname'])}}
 
-                        {{Form::checkbox('product_status','','true',['class'=>'form-control '])}}
-
-                    </div>
 
 
                     {{Form::submit('Save',['class'=>'btn btn-primary btn-sm'])}}
