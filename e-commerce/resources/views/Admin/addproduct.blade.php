@@ -15,7 +15,7 @@
 
                         </div>
                     @endif
-                    {!! Form::open(['action' => 'App\Http\Controllers\ProductController@saveproducts', 'class'=>'cmxform', 'method'=>'POST','id'=>'commentForm', 'ecntype'=>'multipart/form-date']) !!}
+                    {!! Form::open(['action' => 'App\Http\Controllers\ProductController@saveproducts', 'class'=>'cmxform', 'method'=>'POST','id'=>'commentForm', 'enctype'=>'multipart/form-data']) !!}
                     {{csrf_field()}}
 
                     <div class="form-group">
