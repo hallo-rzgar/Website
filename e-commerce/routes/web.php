@@ -33,15 +33,16 @@ Route::get('/orders',  [AdminController::class, 'orders'] );
 Route::get('/addcategory',  [CategoryController::class, 'addcategory'] );
 Route::post('/savecategory',  [CategoryController::class, 'savecategory'] );
 Route::get('/categories',  [CategoryController::class, 'categories'] );
-Route::get('/edit/{id}',  [CategoryController::class, 'edit'] );
+Route::get('/edit_category/{id}',  [CategoryController::class, 'edit'] );
 Route::post('updatecategory',  [CategoryController::class, 'updatecategory'] );
 Route::get('delete/{id}',  [CategoryController::class, 'deletecategory'] );
 
 
 Route::get('/addproduct',  [ProductController::class, 'addproduct'] );
-Route::post('/saveproduct',  [ProductController::class, 'saveproduct'] );
 Route::get('/products',  [ProductController::class, 'products'] );
 Route::post('/saveproducts',  [ProductController::class, 'saveproducts'] );
+Route::get('/edit_product/{id}',  [ProductController::class, 'editproduct'] );
+
 
 
 Route::get('/sliders',  [SliderController::class, 'sliders'] );

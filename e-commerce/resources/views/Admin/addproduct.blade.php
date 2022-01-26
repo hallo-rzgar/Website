@@ -32,6 +32,7 @@
 
                     </div>
 
+
                     <div class="form-group">
                         {{Form::label('','product image')}}
                         {{Form::file('product_image',['class'=>'form-control'])}}

@@ -4,6 +4,7 @@
 @section('title')
       Products
 @endsection
+{{Form::hidden('',$increment=1)}}
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Products</h4>
@@ -15,7 +16,7 @@
                         <tr>
                             <th>Order #</th>
                             <th>Image</th>
-                            <th>{Product Name}</th>
+                            <th>Product Name</th>
                             <th>Price</th>
                             <th>Category</th>
                              <th>Status</th>
@@ -25,8 +26,8 @@
                         <tbody>
                         @foreach($products as $product )
                             <tr>
-                                <td>1</td>
-                                <td>{{$product->product_image}}</td>
+                                <td>{{$increment}}</td>
+                                <td><img src="/storage/product_images/{{$product->product_image}}" alt=""></td>
                                 <td>{{$product->product_name}}</td>
                                 <td>{{$product->product_price}}</td>
                                 <td>{{$product->product_category}}</td>
@@ -40,10 +41,17 @@
                                     </td>
                                 @endif
                                 <td>
-                                    <button class="btn btn-outline-primary">View</button>
+                                    <a href="" class="btn btn-outline-danger" id="delete">Delete</a>
+                                    <button  class="btn btn-outline-primary"  onclick="window.location='{{url('/edit_product/'.$product->id)}}'">Edit</button>
+                                    @if($product->status==1)
+                                        <button class="btn btn-outline-warning">Unactivated</button>
+                                    @else
+                                        <button class="btn btn-outline-success">Activate</button>
+                                    @endif
                                 </td>
                             </tr>
 
+                            {{Form::hidden('',$increment= $increment+ 1)}}
 
                         @endforeach
 

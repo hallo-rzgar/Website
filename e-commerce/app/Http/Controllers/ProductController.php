@@ -11,6 +11,7 @@ class ProductController extends Controller
 {
     public function addproduct()
     {
+
         $categories = Category::All()->pluck('category_name');
         return view('Admin.addproduct')->with('categories', $categories);
     }
@@ -34,7 +35,10 @@ class ProductController extends Controller
             $fileNameToStore = $fileName . '' . time() . '.' . $ext;
 
             // upload image
-            $path = $request->file('product_image')->storeAs('app/public/product_images', $fileNameToStore);
+            $path = $request->file('product_image')->storeAs('public/product_images', $fileNameToStore);
+
+            // And you must run php artisan storage:link
+
 
 
 
@@ -61,6 +65,15 @@ class ProductController extends Controller
     { $products =  Product::get();
         return view('Admin.products')->with('products',$products) ;
     }
+    public function editproduct ($id)
+    {
+        $categories = Category::All()->pluck('category_name');
+
+        $product =  Product::find($id);
+
+        return view('Admin.editproduct')->with('product',$product)->with('categories',$categories);
+    }
+
 
 
 }
