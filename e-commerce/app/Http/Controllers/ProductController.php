@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\Storage;
 
 
 class ProductController extends Controller
@@ -18,7 +19,7 @@ class ProductController extends Controller
 
     public function saveproducts(Request $request)
     {
-        $this->validate($request, ['product_price' => 'required', 'product_name' => 'required', 'product_image' => 'required']);
+        $this->validate($request, ['product_price' => 'required', 'product_name' => 'required'   ]);
 
 
             //1- get filename with ext
@@ -72,6 +73,43 @@ class ProductController extends Controller
         $product =  Product::find($id);
 
         return view('Admin.editproduct')->with('product',$product)->with('categories',$categories);
+    }
+    public function editproduct(Request $request)
+
+    {
+        $this->validate($request, ['product_price' => 'required', 'product_name' => 'required'   ]);
+        $product = new Product();
+        $product->product_name = $request->input('product_name');
+        $product->product_price = $request->input('product_price');
+        $product->product_category = $request->input('product_category');
+
+            if ($request->hasFile('product_image')){
+                //1- get filename with ext
+                $fileNameWithExt = $request->file('product_image')->getClientOriginalName();
+
+                //2- get just file name
+                $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+
+                //3- get just ext
+                $ext = $request->file('product_image')->getClientOriginalExtension();
+
+                // 4- file to store
+
+                $fileNameToStore = $fileName . '' . time() . '.' . $ext;
+
+                // upload image
+                $path = $request->file('product_image')->storeAs('public/product_images', $fileNameToStore);
+
+                    $old_image = Product::find($request->input('id'));
+                    if ($old_image!='noimage.jpg'){
+                        Storage::delete('public/product');
+                    }
+            }
+
+
+        $products =  Product::get();
+        return view('Admin.products')->with('products',$products) ;
+
     }
 
 

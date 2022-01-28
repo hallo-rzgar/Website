@@ -19,6 +19,8 @@
                 {{csrf_field()}}
 
                 <div class="form-group">
+                    {{Form::hidden('id',$product->id)}}
+
                     {{Form::label('','Product Name',['for'=>'cname'])}}
                     {{Form::text('product_name',$product->product_name,['class'=>'form-control','minlength'=>'2'])}}
                 </div>
@@ -40,7 +42,7 @@
 
 
 
-                {{Form::submit('Save',['class'=>'btn btn-primary btn-sm'])}}
+                {{Form::submit('Update',['class'=>'btn btn-primary btn-sm'])}}
                 {!! Form::close() !!}
 
 
