@@ -19,10 +19,11 @@ class ProductController extends Controller
 
     public function saveproducts(Request $request)
     {
-        $this->validate($request, ['product_price' => 'required', 'product_name' => 'required'   ]);
+        $this->validate($request, ['product_price' => 'required', 'product_name' => 'required']);
 
+        if ($request->hasFile('product_image')) {
 
-            //1- get filename with ext
+            //1- get   filename with ext
             $fileNameWithExt = $request->file('product_image')->getClientOriginalName();
 
             //2- get just file name
@@ -37,10 +38,11 @@ class ProductController extends Controller
 
             // upload image
             $path = $request->file('product_image')->storeAs('public/product_images', $fileNameToStore);
-
-            // And you must run php artisan storage:link
-
-
+        }
+        else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+        // And you must run php artisan storage:link
 
 
         $product = new Product();
@@ -63,55 +65,59 @@ class ProductController extends Controller
     }
 
     public function products()
-    { $products =  Product::get();
-        return view('Admin.products')->with('products',$products) ;
+    {
+        $products = Product::get();
+        return view('Admin.products')->with('products', $products);
     }
-    public function editproduct ($id)
+
+    public function editproduct($id)
     {
         $categories = Category::All()->pluck('category_name');
 
-        $product =  Product::find($id);
+        $product = Product::find($id);
 
-        return view('Admin.editproduct')->with('product',$product)->with('categories',$categories);
+        return view('Admin.editproduct')->with('product', $product)->with('categories', $categories);
     }
-    public function editproduct(Request $request)
+
+
+    public function updateproduct(Request $request)
 
     {
-        $this->validate($request, ['product_price' => 'required', 'product_name' => 'required'   ]);
-        $product = new Product();
+        $this->validate($request, ['product_price' => 'required', 'product_name' => 'required']);
+        $product =Product::find($request->input('id'));
         $product->product_name = $request->input('product_name');
         $product->product_price = $request->input('product_price');
         $product->product_category = $request->input('product_category');
 
-            if ($request->hasFile('product_image')){
-                //1- get filename with ext
-                $fileNameWithExt = $request->file('product_image')->getClientOriginalName();
+        if ($request->hasFile('product_image')) {
+            //1- get filename with ext
+            $fileNameWithExt = $request->file('product_image')->getClientOriginalName();
 
-                //2- get just file name
-                $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            //2- get just file name
+            $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
 
-                //3- get just ext
-                $ext = $request->file('product_image')->getClientOriginalExtension();
+            //3- get just ext
+            $ext = $request->file('product_image')->getClientOriginalExtension();
 
-                // 4- file to store
+            // 4- file to store
 
-                $fileNameToStore = $fileName . '' . time() . '.' . $ext;
+            $fileNameToStore = $fileName . '' . time() . '.' . $ext;
 
-                // upload image
-                $path = $request->file('product_image')->storeAs('public/product_images', $fileNameToStore);
+            // upload image
+            $path = $request->file('product_image')->storeAs('public/product_images', $fileNameToStore);
 
-                    $old_image = Product::find($request->input('id'));
-                    if ($old_image!='noimage.jpg'){
-                        Storage::delete('public/product');
-                    }
+            $old_image = Product::find($request->input('id'));
+            if ($old_image->product_image !=='noimage.jpg') {
+                Storage::delete('public/product_images/'.$old_image->product_image);
             }
+            $product->product_image = $fileNameToStore ;
+        }
+        $product->update();
 
+        return redirect('/products')->with('status', 'the ' . $product->product_name . ' Product has been Updated successfuly');
 
-        $products =  Product::get();
-        return view('Admin.products')->with('products',$products) ;
 
     }
-
 
 
 }
