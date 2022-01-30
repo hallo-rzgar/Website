@@ -43,16 +43,16 @@
                                 </td>
                                 @else
                                     <td>
-                                        <label class="badge badge-danger">Unactivated</label>
+                                        <label class="badge badge-danger ">Unactivated</label>
                                     </td>
                                 @endif
                                 <td>
-                                    <a href="" class="btn btn-outline-danger" id="delete">Delete</a>
+                                    <a href="{{url('/delete/'.$product->id)}}" class="btn btn-outline-danger" id="delete">Delete</a>
                                     <button  class="btn btn-outline-primary"  onclick="window.location='{{url('/edit_product/'.$product->id)}}'">Edit</button>
                                     @if($product->status==1)
-                                        <button class="btn btn-outline-warning">Unactivated</button>
+                                        <a class="btn btn-outline-warning" href="{{url('/unactive_product/'.$product->id)}}" >Unactivated</a>
                                     @else
-                                        <button class="btn btn-outline-success">Activate</button>
+                                        <a class="btn btn-outline-success"  href="{{url('/active_product/'.$product->id)}}'">Activate</a>
                                     @endif
                                 </td>
                             </tr>

@@ -18,7 +18,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{URL::to('/addcategory')}}">Add Category</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{URL::to('/addproduct')}}">Add product</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{URL::to('/addslide')}}">Add silder</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{URL::to('/addslider')}}">Add silder</a></li>
                  </ul>
             </div>
         </li>

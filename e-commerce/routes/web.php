@@ -43,11 +43,20 @@ Route::get('/products',  [ProductController::class, 'products'] );
 Route::post('/saveproducts',  [ProductController::class, 'saveproducts'] );
 Route::get('/edit_product/{id}',  [ProductController::class, 'editproduct'] );
 Route::post('/updateproduct',  [ProductController::class, 'updateproduct'] );
+Route::get('delete/{id}',  [ProductController::class, 'deleteproduct'] );
+Route::get('active_product/{id}',  [ProductController::class, 'active_product'] );
+Route::get('unactive_product/{id}',  [ProductController::class, 'unactive_product'] );
+
 
 
 
 Route::get('/sliders',  [SliderController::class, 'sliders'] );
-Route::get('/addslide',  [SliderController::class, 'addslide'] );
+Route::get('/addslider',  [SliderController::class, 'addslider'] );
+Route::post('/saveslider',  [SliderController::class, 'saveslider'] );
+Route::get('/edit_slider/{id}',  [SliderController::class, 'edit_slider'] );
+Route::post('/updateslider',  [SliderController::class, 'updateslider'] );
+Route::get('delete/{id}',  [SliderController::class, 'deleteslider'] );
+
 
 
 

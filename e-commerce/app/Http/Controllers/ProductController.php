@@ -106,9 +106,9 @@ class ProductController extends Controller
             // upload image
             $path = $request->file('product_image')->storeAs('public/product_images', $fileNameToStore);
 
-            $old_image = Product::find($request->input('id'));
-            if ($old_image->product_image !=='noimage.jpg') {
-                Storage::delete('public/product_images/'.$old_image->product_image);
+          //  $old_image = Product::find($request->input('id'));
+            if ($product->product_image !=='noimage.jpg') {
+                Storage::delete('public/product_images/'.$product->product_image);
             }
             $product->product_image = $fileNameToStore ;
         }
@@ -116,6 +116,31 @@ class ProductController extends Controller
 
         return redirect('/products')->with('status', 'the ' . $product->product_name . ' Product has been Updated successfuly');
 
+
+    }
+    public function deleteproduct($id){
+        $product = Product::find($id);
+        if ($product->product_image !=='noimage.jpg') {
+            Storage::delete('public/product_images/'.$product->product_image);
+        }
+        $product->delete();
+
+        return redirect('/products')->with('status', 'the ' . $product->product_name . ' Product has been Deleted successfuly');
+    }
+    public function active_product($id)
+{
+    $product = Product::find($id);
+    $product->status = 1 ;
+    $product->update();
+    return redirect('/products')->with('status', 'the ' . $product->product_name . ' Product status has been Activated successfuly');
+
+}
+    public function unactive_product($id)
+    {
+        $product = Product::find($id);
+        $product->status = 0 ;
+        $product->update();
+        return redirect('/products')->with('status', 'the ' . $product->product_name . '   status has been Unactivated successfuly');
 
     }
 
