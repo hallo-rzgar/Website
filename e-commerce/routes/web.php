@@ -54,8 +54,11 @@ Route::get('/sliders',  [SliderController::class, 'sliders'] );
 Route::get('/addslider',  [SliderController::class, 'addslider'] );
 Route::post('/saveslider',  [SliderController::class, 'saveslider'] );
 Route::get('/edit_slider/{id}',  [SliderController::class, 'edit_slider'] );
-Route::post('/updateslider',  [SliderController::class, 'updateslider'] );
-Route::get('delete/{id}',  [SliderController::class, 'deleteslider'] );
+Route::post('/update_slider',  [SliderController::class, 'update_slider'] );
+Route::get('delete/{id}',  [SliderController::class, 'delete_slider'] );
+
+Route::get('active_slider/{id}',  [SliderController::class, 'active_slider'] );
+Route::get('unactive_slider/{id}',  [SliderController::class, 'unactive_slider'] );
 
 
 

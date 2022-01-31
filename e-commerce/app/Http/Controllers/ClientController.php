@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
   public function home (){
-      return view('client.home');
+      $sliders = Slider::get();
+      return view('client.home')->with('sliders',$sliders);
   }
 
   public function shop (){

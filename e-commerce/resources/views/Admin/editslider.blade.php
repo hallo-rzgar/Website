@@ -16,15 +16,16 @@
                     </div>
                 @endif
 
-                {!! Form::open(['action' => 'App\Http\Controllers\SliderController@saveslider', 'class'=>'cmxform', 'method'=>'POST','id'=>'commentForm', 'enctype'=>'multipart/form-data']) !!}
+                {!! Form::open(['action' => 'App\Http\Controllers\SliderController@update_slider', 'class'=>'cmxform', 'method'=>'POST','id'=>'commentForm', 'enctype'=>'multipart/form-data']) !!}
                 {{csrf_field()}}
+                {{Form::hidden('id',$sliders->id)}}
                 <div class="form-group">
                     {{Form::label('','Description one',['for'=>'cname'])}}
-                    {{Form::text('description_one','',['class'=>'form-control','minlength'=>'2'])}}
+                    {{Form::text('description_one',$sliders->description1,['class'=>'form-control','minlength'=>'2'])}}
                 </div>
                 <div class="form-group">
                     {{Form::label('','Description two',['for'=>'cname'])}}
-                    {{Form::text('description_two','',['class'=>'form-control'])}}
+                    {{Form::text('description_two',$sliders->description2,['class'=>'form-control'])}}
                 </div>
                 <div class="form-group">
                     {{Form::label('','Slider Image')}}
