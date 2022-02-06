@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -52,4 +53,15 @@ class CategoryController extends Controller
 
         return redirect('/categories')->with('status', 'the ' . $category->category_name . ' Category has been Deleted successfuly');
     }
-}
+
+    public function view_by_cat($name)
+    {
+        $category = Category::get();
+        // product_category must equal to name
+        $product = Product::where('product_category',$name )->get();
+
+        return view('client.shop')->with('products', $product)->with('categories', $category);
+
+    }
+    }
+

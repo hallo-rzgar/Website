@@ -81,7 +81,7 @@ class SliderController extends Controller
         $slider->description1 = $request->input('description_one');
         $slider->description2 = $request->input('description_two');
 
-        if ($request->hasFile('product_image')) {
+        if ($request->hasFile('slider_image')) {
             //1- get filename with ext
             $fileNameWithExt = $request->file('slider_image')->getClientOriginalName();
 
