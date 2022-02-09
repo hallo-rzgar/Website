@@ -31,50 +31,54 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="text-center">
-                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
-                            <td class="image-prod"><div class="img" style="background-image:url(frontend/images/product-3.jpg);"></div></td>
+                            @if(Session::has('cart'))
+                                @foreach( $products as $post)
+                                    <tr class="text-center">
+                                        <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
-                            <td class="product-name">
-                                <h3>Bell Pepper</h3>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                            </td>
+                                        <td class="image-prod">
+                                            <div class="img"
+                                                 style="background-image:url(/storage/product_images/{{$post['product_image']}});"></div>
+                                        </td>
 
-                            <td class="price">$4.90</td>
-                            <form action="">
-                                <td class="quantity">
-                                    <div class="input-group mb-3">
-                                        <input type="number" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-                                    </div>
-                            </form>
+                                        <td class="product-name">
+                                            <h3>{{$post['product_name']}}</h3>
+                                            <p>Far far away, behind the word mountains, far from the countries</p>
+                                        </td>
+
+                                        <td class="price">${{$post['product_price']}}</td>
+                                        {!! Form::open(['action' => 'App\Http\Controllers\ClientController@updateqty', 'method'=>'POST']) !!}
+                                        {{csrf_field()}}
+                                            <td class="quantity">
+                                                  <div class="input-group mb-3">
+                                                    <input type="number" name="quantity"
+                                                           class="quantity form-control input-number"
+                                                           value="{{$post['qty']}}" min="1" max="100">
+
+                                                      <input type="number" name="id"
+                                                             class="quantity form-control input-number"
+                                                             value="{{$post['id']}}" min="1" max="100">
+                                                </div>
+                                                {{Form::submit('Update',['class'=>'btn btn-success mt-4 btn-sm'])}}
+                                                {!! Form::close() !!}
 
 
-                            </td>
+                                        </td>
 
-                            <td class="total">$4.90</td>
-                        </tr><!-- END TR-->
+                                        <td class="total">${{$post['qty'].'e'}}</td>
+                                    </tr><!-- END TR-->
 
-                        <tr class="text-center">
-                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
-                            <td class="image-prod"><div class="img" style="background-image:url(frontend/images/product-4.jpg);"></div></td>
 
-                            <td class="product-name">
-                                <h3>Bell Pepper</h3>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                            </td>
+                                @endforeach
+                            @else
+                            @endif
 
-                            <td class="price">$15.70</td>
 
-                            <td class="quantity">
-                                <div class="input-group mb-3">
-                                    <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-                                </div>
-                            </td>
 
-                            <td class="total">$15.70</td>
-                        </tr><!-- END TR-->
+
+
                         </tbody>
                     </table>
                 </div>
@@ -144,10 +148,10 @@
 
 @section('script')
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
 
-            var quantitiy=0;
-            $('.quantity-right-plus').click(function(e){
+            var quantitiy = 0;
+            $('.quantity-right-plus').click(function (e) {
 
                 // Stop acting like a button
                 e.preventDefault();
@@ -163,7 +167,7 @@
 
             });
 
-            $('.quantity-left-minus').click(function(e){
+            $('.quantity-left-minus').click(function (e) {
                 // Stop acting like a button
                 e.preventDefault();
                 // Get the field name
@@ -172,7 +176,7 @@
                 // If is not undefined
 
                 // Increment
-                if(quantity>0){
+                if (quantity > 0) {
                     $('#quantity').val(quantity - 1);
                 }
             });

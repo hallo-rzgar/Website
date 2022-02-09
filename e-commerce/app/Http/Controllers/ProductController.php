@@ -6,6 +6,8 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
+use App\Cart;
 
 
 class ProductController extends Controller
@@ -143,6 +145,19 @@ class ProductController extends Controller
         return redirect('/products')->with('status', 'the ' . $product->product_name . '   status has been Unactivated successfuly');
 
     }
+    public function addtocart($id)
+    {
+        $product = Product::find($id);
+        $oldCart = Session::has('cart')? Session::get('cart'):null;
+        $cart = new Cart ($oldCart);
+        $cart->add($product, $id);
+        Session::put('cart', $cart);
+        //dd(Session::get('cart'));
+        return redirect::to('/cart' , compact('product'));
 
+
+
+
+    }
 
 }

@@ -25,6 +25,7 @@ Route::get('/cart',  [ClientController::class, 'cart'] );
 Route::get('/checkout',  [ClientController::class, 'checkout'] );
 Route::get('/login',  [ClientController::class, 'login'] );
 Route::get('/signup',  [ClientController::class, 'signup'] );
+Route::post('/updateqty',  [ClientController::class, 'updateqty'] );
 
 Route::get('/admin',  [AdminController::class, 'dashboard'] );
 Route::get('/orders',  [AdminController::class, 'orders'] );
@@ -48,6 +49,7 @@ Route::post('/updateproduct',  [ProductController::class, 'updateproduct'] );
 Route::get('delete/{id}',  [ProductController::class, 'deleteproduct'] );
 Route::get('active_product/{id}',  [ProductController::class, 'active_product'] );
 Route::get('unactive_product/{id}',  [ProductController::class, 'unactive_product'] );
+Route::get('/addtocart/{id}',  [ProductController::class, 'addtocart'] );
 
 
 
